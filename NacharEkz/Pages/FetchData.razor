@@ -1,0 +1,57 @@
+﻿@page "/fetchdata"
+
+@using NacharEkz.Data
+@inject WeatherForecastService ForecastService
+@inject NavigationManager NavigationManager
+
+<input @bind-value="@name"/>
+<button @onclick=OnClick></button>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var name in temp)
+            {
+                <tr>
+                    <td>@name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private WeatherForecast[] forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+    }
+
+    private List<string> temp = new List<string>();
+
+    public void OnInput(ChangeEventArgs e)
+    {
+        temp.Add(e.Value.ToString());
+    }
+
+    public string name;
+
+    public void OnClick()
+    {
+        if (!string.IsNullOrEmpty(name))
+            temp.Add(name);
+
+        NavigationManager.NavigateTo($"/table/{name}");
+    }
+}
