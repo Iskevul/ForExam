@@ -75,6 +75,7 @@ using NacharEkz.Shared;
 #line default
 #line hidden
 #nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/table")]
     [Microsoft.AspNetCore.Components.RouteAttribute("/table/{value}")]
     public partial class Table : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -84,7 +85,7 @@ using NacharEkz.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 21 "C:\Users\1\source\repos\NacharEkz\NacharEkz\Pages\Table.razor"
+#line 22 "C:\Users\1\source\repos\NacharEkz\NacharEkz\Pages\Table.razor"
        
     [Parameter]
     public string value { get; set; }
