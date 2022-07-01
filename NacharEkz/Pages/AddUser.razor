@@ -1,0 +1,22 @@
+﻿@page "/adduser"
+@using NacharEkz.Data;
+
+<h3>AddUser</h3>
+
+<input class="form-control" @bind-value=name />
+<input class="form-control" @bind-value=surname/>
+<button class="btn btn-success" @onclick=OnClick>Добавить</button>
+
+@code {
+    private string name { get; set; }
+    private string surname { get; set; }
+
+    public void OnClick()
+    {
+        User user = new User(name, surname);
+        DB.AddUserToDatabase(user);
+
+        name = string.Empty;
+        surname = string.Empty;
+    }
+}

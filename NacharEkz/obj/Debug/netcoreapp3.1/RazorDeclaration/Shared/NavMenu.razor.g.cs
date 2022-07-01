@@ -83,7 +83,7 @@ using NacharEkz.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 33 "C:\Users\1\source\repos\NacharEkz\NacharEkz\Shared\NavMenu.razor"
+#line 38 "C:\Users\1\source\repos\NacharEkz\NacharEkz\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 
